@@ -1,0 +1,53 @@
+
+<html>
+<head><title>Employee Performance Analysis</title></head>
+<body>
+<h2>Employee Department Analysis</h2>
+
+<p><b>Email:</b> 23f1000780@ds.study.iitm.ac.in</p>
+
+<h3>Sales Department Frequency</h3>
+<p>Sales department frequency count: 4</p>
+<p>4</p>
+
+<h3>Python Code Used</h3>
+<pre><code>
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Email for verification: 23f1000780@ds.study.iitm.ac.in
+
+data = {
+    "employee_id": ["EMP001","EMP002","EMP003","EMP004","EMP005",
+                    "EMP006","EMP007","EMP008","EMP009","EMP010"],
+    "department": ["HR","Sales","IT","Sales","Operations",
+                   "Sales","Finance","HR","IT","Sales"],
+    "region": ["Europe","Asia","Europe","Latin America","North America",
+               "Europe","Asia","Middle East","Europe","Asia"],
+    "performance_score": [67.44, 80.12, 72.50, 90.63, 60.25,
+                          88.90, 77.30, 69.50, 85.10, 91.75],
+    "years_experience": [11, 5, 4, 2, 8, 6, 10, 3, 7, 1],
+    "satisfaction_rating": [4.7, 4.1, 4.6, 3.5, 4.0,
+                            4.8, 4.2, 3.9, 4.4, 4.9]
+}
+
+df = pd.DataFrame(data)
+
+sales_count = df[df["department"] == "Sales"].shape[0]
+print("Frequency count for Sales department:", sales_count)
+
+plt.figure(figsize=(8, 5))
+plt.hist(df["department"])
+plt.title("Department Distribution")
+plt.xlabel("Department")
+plt.ylabel("Frequency")
+plt.tight_layout()
+plt.savefig("department_histogram.png")
+
+</code></pre>
+
+<h3>Department Distribution Histogram</h3>
+<img src="department_histogram.png" width="500">
+
+</body>
+</html>
